@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>《Kali Linux 高级渗透测试》Ch1 学习记录</title>
+    <url>/2020/10/05/Kali-Ch1/</url>
+    <content><![CDATA[<p>一直对网络安全感兴趣，希望能从这本书里学到一些技术和相关概念。写记录主要是将自己踩到的坑记录下来，希望对后面学习的人有帮助，同时也提高自己的markdown水平。</p>
+<h1 id="第一章-基于目标的渗透测试"><a href="#第一章-基于目标的渗透测试" class="headerlink" title="第一章 基于目标的渗透测试"></a>第一章 基于目标的渗透测试</h1><p>第一章首先简单的介绍了一下有关安全的概念，其主要讲解的是kali的安装以及目标靶机的安装。</p>
+<h2 id="第一节-Kali安装"><a href="#第一节-Kali安装" class="headerlink" title="第一节 Kali安装"></a>第一节 Kali安装</h2><p>我是windows10系统，直接按照书上的教程将kali安装到visualbox。</p>
+<h2 id="第二节-安装靶机"><a href="#第二节-安装靶机" class="headerlink" title="第二节  安装靶机"></a>第二节  安装靶机</h2><p>因为不熟悉windows server 2008 R2等系统，故这一部分踩坑较多。</p>
+<h3 id="Windows-Server-2008-R2"><a href="#Windows-Server-2008-R2" class="headerlink" title="Windows Server 2008 R2"></a>Windows Server 2008 R2</h3><p>首先，安装系统并无问题，只需要注意在设定密码时，需要大小写以及数字，最少6位。</p>
+<p>问题出在后续安装Mutillidae上，由于这个需要用到XAMPP或者其他所具备的PHP以及MySQL环境，故安装XAMPP。但由于windows server 2008 R2系统缺少<a href="https://www.jianshu.com/p/d1389e9306d0"><strong>三个必要补丁</strong></a>，同时不知道为什么微软将这三个补丁的安装都404了，故无法安装VC12以及VC15。但我尝试了VC11,是可以成功的，故XAMPP也选择了需要VC11的版本。</p>
+<a id="more"></a>
+<p>接着，将Mutillidae放置到XAMPP的目录中去，却发现403禁止访问，这是因为XAMPP数据库的密码和Mutillidae的密码不一致，故需要修改密码，先从phpmyadmin中修改密码，我是将所有的密码都修改了一遍且相同；再从database-config.php中<a href="https://www.fujieace.com/penetration-test/mutillidae.html"><strong>修改密码</strong></a>。最终就配置成功了。</p>
+<h3 id="Metasploitable3"><a href="#Metasploitable3" class="headerlink" title="Metasploitable3"></a>Metasploitable3</h3><p>这个是我安装耗时最久的虚拟机。推荐直接看<a href="https://github.com/rapid7/metasploitable3#to-build-manually"><strong>文档</strong></a>，根据文档指示逐步操作，期间一定要保证网络的良好性以及相关插件的安装。目前，有一个错误是自带的windows的json有问题，可以通过<a href="https://github.com/rapid7/metasploitable3/issues/468"><strong>issue468</strong></a>解决。同时，相关问题要多看看issue，看看有无类似的，大多问题都可以直接解决。安装大概花了一个半小时左右。</p>
+<p>此外，vagrant的使用可能会报错，确保将vagrant，powershell以及git都加入到环境变量中的path。</p>
+<p>最后，使用<em>vagrant up win2k8</em> 可能存在找不到路径的问题，然后powershell重新下载box，推荐visualbox直接打开 <em>\boxes\metasploitable3-win2k8\0\virtualbox</em> 路径下的ovf文件进行导入。</p>
+<h3 id="Faraday"><a href="#Faraday" class="headerlink" title="Faraday"></a>Faraday</h3><p>Faraday的安装也是按照<a href="https://github.com/infobyte/faraday/wiki/Install-Guide#installation-from-git-repo"><strong>文档</strong></a>走的，会比书上讲的更详细,而且更好用。 期间可能会存在一个python版本转换的问题，因为kali既有python2也有python3，直接转成python3后开始就可以安装了。</p>
+<h2 id="第三节-总结"><a href="#第三节-总结" class="headerlink" title="第三节 总结"></a>第三节 总结</h2><p>这次安装来来回回花了很久的时间，个人感觉是一定要跟着官方最新文档走，这样会出更少的问题，而且更高效。同时，装环境是一件很容易又很费劲的事情（尤其是出了error的时候），但还是得心平气和的搞定它。最后，立个flag，希望这学期看完这本书。</p>
+]]></content>
+      <categories>
+        <category>《Kali Linux 高级渗透测试》</category>
+      </categories>
+      <tags>
+        <tag>Kali</tag>
+        <tag>工科书籍</tag>
+      </tags>
+  </entry>
+</search>

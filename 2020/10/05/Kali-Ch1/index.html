@@ -19,19 +19,21 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="一直对网络安全感兴趣，希望能从这本书里学到一些技术和相关概念。写记录主要是将自己踩到的坑记录下来，希望对后面学习的人有帮助，同时也提高自己的markdown水平。 第一章 基于目标的渗透测试第一章首先简单的介绍了一下有关安全的概念，其主要讲解的是kali的安装以及目标靶机的安装。 第一节 Kali安装我是windows10系统，直接按照书上的教程将kali安装到visualbox。 第二节  安装">
+<meta property="og:type" content="article">
 <meta property="og:title" content="《Kali Linux 高级渗透测试》Ch1 学习记录">
 <meta property="og:url" content="http://example.com/2020/10/05/Kali-Ch1/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一直对网络安全感兴趣，希望能从这本书里学到一些技术和相关概念。写记录主要是将自己踩到的坑记录下来，希望对后面学习的人有帮助，同时也提高自己的markdown水平。 第一章 基于目标的渗透测试第一章首先简单的介绍了一下有关安全的概念，其主要讲解的是kali的安装以及目标靶机的安装。 第一节 Kali安装我是windows10系统，直接按照书上的教程将kali安装到visualbox。 第二节  安装">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-05T15:04:33.000Z">
-<meta property="article:modified_time" content="2020-10-05T15:17:04.793Z">
+<meta property="article:modified_time" content="2020-10-06T12:25:14.896Z">
 <meta property="article:author" content="RigCor7">
 <meta property="article:tag" content="Kali">
-<meta property="article:tag" content="学习教材">
+<meta property="article:tag" content="工科书籍">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://example.com/2020/10/05/Kali-Ch1/">
@@ -106,6 +108,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -140,11 +143,38 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -190,10 +220,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-10-05 23:04:33 / 修改时间：23:17:04" itemprop="dateCreated datePublished" datetime="2020-10-05T23:04:33+08:00">2020-10-05</time>
+              <time title="创建时间：2020-10-05 23:04:33" itemprop="dateCreated datePublished" datetime="2020-10-05T23:04:33+08:00">2020-10-05</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-06 20:25:14" itemprop="dateModified" datetime="2020-10-06T20:25:14+08:00">2020-10-06</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -215,7 +251,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <p>一直对网络安全感兴趣，希望能从这本书里学到一些技术和相关概念。写记录主要是将自己踩到的坑记录下来，希望对后面学习的人有帮助，同时也提高自己的markdown水平。</p>
+<h1 id="第一章-基于目标的渗透测试"><a href="#第一章-基于目标的渗透测试" class="headerlink" title="第一章 基于目标的渗透测试"></a>第一章 基于目标的渗透测试</h1><p>第一章首先简单的介绍了一下有关安全的概念，其主要讲解的是kali的安装以及目标靶机的安装。</p>
+<h2 id="第一节-Kali安装"><a href="#第一节-Kali安装" class="headerlink" title="第一节 Kali安装"></a>第一节 Kali安装</h2><p>我是windows10系统，直接按照书上的教程将kali安装到visualbox。</p>
+<h2 id="第二节-安装靶机"><a href="#第二节-安装靶机" class="headerlink" title="第二节  安装靶机"></a>第二节  安装靶机</h2><p>因为不熟悉windows server 2008 R2等系统，故这一部分踩坑较多。</p>
+<h3 id="Windows-Server-2008-R2"><a href="#Windows-Server-2008-R2" class="headerlink" title="Windows Server 2008 R2"></a>Windows Server 2008 R2</h3><p>首先，安装系统并无问题，只需要注意在设定密码时，需要大小写以及数字，最少6位。</p>
+<p>问题出在后续安装Mutillidae上，由于这个需要用到XAMPP或者其他所具备的PHP以及MySQL环境，故安装XAMPP。但由于windows server 2008 R2系统缺少<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d1389e9306d0"><strong>三个必要补丁</strong></a>，同时不知道为什么微软将这三个补丁的安装都404了，故无法安装VC12以及VC15。但我尝试了VC11,是可以成功的，故XAMPP也选择了需要VC11的版本。</p>
+<a id="more"></a>
+<p>接着，将Mutillidae放置到XAMPP的目录中去，却发现403禁止访问，这是因为XAMPP数据库的密码和Mutillidae的密码不一致，故需要修改密码，先从phpmyadmin中修改密码，我是将所有的密码都修改了一遍且相同；再从database-config.php中<a target="_blank" rel="noopener" href="https://www.fujieace.com/penetration-test/mutillidae.html"><strong>修改密码</strong></a>。最终就配置成功了。</p>
+<h3 id="Metasploitable3"><a href="#Metasploitable3" class="headerlink" title="Metasploitable3"></a>Metasploitable3</h3><p>这个是我安装耗时最久的虚拟机。推荐直接看<a target="_blank" rel="noopener" href="https://github.com/rapid7/metasploitable3#to-build-manually"><strong>文档</strong></a>，根据文档指示逐步操作，期间一定要保证网络的良好性以及相关插件的安装。目前，有一个错误是自带的windows的json有问题，可以通过<a target="_blank" rel="noopener" href="https://github.com/rapid7/metasploitable3/issues/468"><strong>issue468</strong></a>解决。同时，相关问题要多看看issue，看看有无类似的，大多问题都可以直接解决。安装大概花了一个半小时左右。</p>
+<p>此外，vagrant的使用可能会报错，确保将vagrant，powershell以及git都加入到环境变量中的path。</p>
+<p>最后，使用<em>vagrant up win2k8</em> 可能存在找不到路径的问题，然后powershell重新下载box，推荐visualbox直接打开 <em>\boxes\metasploitable3-win2k8\0\virtualbox</em> 路径下的ovf文件进行导入。</p>
+<h3 id="Faraday"><a href="#Faraday" class="headerlink" title="Faraday"></a>Faraday</h3><p>Faraday的安装也是按照<a target="_blank" rel="noopener" href="https://github.com/infobyte/faraday/wiki/Install-Guide#installation-from-git-repo"><strong>文档</strong></a>走的，会比书上讲的更详细,而且更好用。 期间可能会存在一个python版本转换的问题，因为kali既有python2也有python3，直接转成python3后开始就可以安装了。</p>
+<h2 id="第三节-总结"><a href="#第三节-总结" class="headerlink" title="第三节 总结"></a>第三节 总结</h2><p>这次安装来来回回花了很久的时间，个人感觉是一定要跟着官方最新文档走，这样会出更少的问题，而且更高效。同时，装环境是一件很容易又很费劲的事情（尤其是出了error的时候），但还是得心平气和的搞定它。最后，立个flag，希望这学期看完这本书。</p>
+
     </div>
 
     
@@ -225,7 +274,7 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Kali/" rel="tag"># Kali</a>
-              <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%95%99%E6%9D%90/" rel="tag"># 学习教材</a>
+              <a href="/tags/%E5%B7%A5%E7%A7%91%E4%B9%A6%E7%B1%8D/" rel="tag"># 工科书籍</a>
           </div>
 
         
@@ -289,6 +338,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%9F%BA%E4%BA%8E%E7%9B%AE%E6%A0%87%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95"><span class="nav-number">1.</span> <span class="nav-text">第一章 基于目标的渗透测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E8%8A%82-Kali%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">第一节 Kali安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E8%8A%82-%E5%AE%89%E8%A3%85%E9%9D%B6%E6%9C%BA"><span class="nav-number">1.2.</span> <span class="nav-text">第二节  安装靶机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows-Server-2008-R2"><span class="nav-number">1.2.1.</span> <span class="nav-text">Windows Server 2008 R2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Metasploitable3"><span class="nav-number">1.2.2.</span> <span class="nav-text">Metasploitable3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Faraday"><span class="nav-number">1.2.3.</span> <span class="nav-text">Faraday</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E8%8A%82-%E6%80%BB%E7%BB%93"><span class="nav-number">1.3.</span> <span class="nav-text">第三节 总结</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -385,6 +435,10 @@
   
 
 
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 
