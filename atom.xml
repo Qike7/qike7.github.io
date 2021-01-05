@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-10-06T12:25:14.896Z</updated>
+  <updated>2021-01-05T14:22:42.389Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Kali-Ch2</title>
+    <link href="http://example.com/2020/12/28/Kali-Ch2/"/>
+    <id>http://example.com/2020/12/28/Kali-Ch2/</id>
+    <published>2020-12-28T13:01:27.000Z</published>
+    <updated>2021-01-05T14:22:42.389Z</updated>
+    
+    <content type="html"><![CDATA[<p>终于在这学期结束，开始第二章了，拖延症重症患者。几乎连Markdown的用法都忘了，flag白立了。废话不多说，开始第二章。依旧是总结自己踩过的坑。</p><h1 id="第二章-开源情报和被动侦察"><a href="#第二章-开源情报和被动侦察" class="headerlink" title="第二章 开源情报和被动侦察"></a>第二章 开源情报和被动侦察</h1><p>这一章主要是以收集开源情报（OSINT）为主，分为进攻型和防御型，介绍了收集信息的各种工具；也简略介绍了一些防御型ONIST。最后一部分为分析密码，通过不同的工具来分析潜在的密码并破解。总之还是非常有意思的，也没有什么坑，根据书上教程，完全OK。</p><a id="more"></a><h2 id="第一节-Maltego"><a href="#第一节-Maltego" class="headerlink" title="第一节 Maltego"></a>第一节 Maltego</h2><p>首先，根据书上的教程，注册账号。接着，在kali命令行输入maltego，然后会出现一个图形化界面，接着选择免费版CE，接着登陆，一路next，最终会出现一个完整的运行界面，如下图所示：<br><img src="/2020/12/28/Kali-Ch2/1.PNG" alt="界面"></p><p>接着，我们点开machine，运行run machine<br><img src="/2020/12/28/Kali-Ch2/2.png" alt="运行"></p><p>按照书上的教程，选择Footprint L1开始，输入相关域名，即可找到所有相关信息<br><img src="/2020/12/28/Kali-Ch2/3.png" alt="结果"></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;终于在这学期结束，开始第二章了，拖延症重症患者。几乎连Markdown的用法都忘了，flag白立了。废话不多说，开始第二章。依旧是总结自己踩过的坑。&lt;/p&gt;
+&lt;h1 id=&quot;第二章-开源情报和被动侦察&quot;&gt;&lt;a href=&quot;#第二章-开源情报和被动侦察&quot; class=&quot;headerlink&quot; title=&quot;第二章 开源情报和被动侦察&quot;&gt;&lt;/a&gt;第二章 开源情报和被动侦察&lt;/h1&gt;&lt;p&gt;这一章主要是以收集开源情报（OSINT）为主，分为进攻型和防御型，介绍了收集信息的各种工具；也简略介绍了一些防御型ONIST。最后一部分为分析密码，通过不同的工具来分析潜在的密码并破解。总之还是非常有意思的，也没有什么坑，根据书上教程，完全OK。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="《Kali Linux 高级渗透测试》" scheme="http://example.com/categories/%E3%80%8AKali-Linux-%E9%AB%98%E7%BA%A7%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E3%80%8B/"/>
+    
+    
+    <category term="Kali" scheme="http://example.com/tags/Kali/"/>
+    
+    <category term="工科书籍" scheme="http://example.com/tags/%E5%B7%A5%E7%A7%91%E4%B9%A6%E7%B1%8D/"/>
+    
+  </entry>
   
   <entry>
     <title>《Kali Linux 高级渗透测试》Ch1 学习记录</title>
